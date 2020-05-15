@@ -8,22 +8,20 @@ if(isset($_POST['crud'])){
             'cate_nom' => $_POST['cate_nom'],
             'cate_des' => $_POST['cate_des']
         );
-        var_dump($new_cate);
-        $id_cate = $cate_controller->set($new_cate);
-        if ($id_cate == -1) {
-            header('Location: ./productos&success=Categoria guardado');
-        }else{
-            header('Location: ./productos&success=Error al guardar la categoria');
-        }
+        //var_dump($new_cate);
+        $cate_controller->set($new_cate);
+        header('Location: ./productos&success=Categoría guardada');
+        
     }else if ($_POST['crud'] == 'edi-cate') {
-        $act_vive = array(
-            'vive_tit' => $_POST['vive_tit'],
-            'vive_id'  => $_POST['vive_id'],
+        $act_cate = array(
+            'cate_nom' => $_POST['cate_nom'],
+            'cate_des' => $_POST['cate_des'],
+            'cate_id'  => $_POST['cate_id'],
         );
-        $vivero_controller->set($act_vive);
-        header('Location: ./productos&success=Vivero actualizada');
+        $cate_controller->set($act_vive);
+        header('Location: ./productos&success=Categoría actualizada');
     }else if ($_POST['crud'] == 'del-cate') {
-        $vivero_controller->del($_POST['vive_id']);
-        header('Location: ./productos&success=Vivero eliminado');
+        $cate_controller->del($_POST['cate_cod']);
+        header('Location: ./productos&success=Categoría eliminado');
     } 
 }

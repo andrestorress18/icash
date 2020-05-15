@@ -3,9 +3,13 @@ print('<title>Usuarios | iCash</title>');
 /***********INICIO CUERPO***********/
 $usuario_controller = new UsuarioController();
 $usuario = $usuario_controller->get();
-$num_usuario = empty($usuario) ? 0 : count($usuario);
+if ( is_array( $usuario ) ) {
+	$num_usuario = empty($usuario) ? 0 : count($usuario);
+}
 $datos = array_keys($usuario[0]);
+if ( is_array( $datos) ) {
 $num_tit = empty($datos) ? 0 : count($datos);
+}
 print('
 	<div class="container-cab">
 		<h3>Usuarios</h3>
@@ -37,7 +41,7 @@ if ($_GET['r'] == 'usuarios' && !isset($_POST['crud'])) {
 }
 if (empty($usuario)) {
     print('
-		<table>
+		<table class="table table-striped table-hover">
 			<thead>
 				<tr>
 					<th>USUARIOS</th>
@@ -50,7 +54,8 @@ if (empty($usuario)) {
 	');
 } else {
     $template_usuario = '<div class="container-tabla">
-		<table id="tablaModel">
+		<table >
+		<table id="tbl-usuario" class="table table-hover">
 			<thead>
 				<tr>
 					<th>ID</th>
@@ -77,7 +82,7 @@ if (empty($usuario)) {
 				<td>' . $usuario[$n]['usua_rol'] . '</td>
 				<td>' . $usuario[$n]['usua_est'] . '</td>
 				<td>
-					<button type="button" class="btn btn-success btn-sm" data-toggle="modal" onClick="limpiar_edi()" data-target="#Modal-edi" data-name="'.$usuario[$n]['usua_nom'].'" ';
+					<button type="button" class="btn btn-success btn-sm" data-toggle="modal" onClick="limpiar_edi();" data-target="#Modal-edi" data-name="'.$usuario[$n]['usua_nom'].'" ';
 				for ($i=0; $i < $num_tit; $i++) { 
 					$template_usuario .='data-'.$datos[$i].'="'.$usuario[$n][$datos[$i]].'" ';
 				}
@@ -103,3 +108,8 @@ if (empty($usuario)) {
 }
 /***********FIN CUERPO***********/
 print('	</div>');
+print("<script>
+	$(document).ready( function () {
+	    $('#tbl-usuario').DataTable();
+	} );
+</script>");

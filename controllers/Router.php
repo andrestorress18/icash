@@ -28,11 +28,23 @@ class Router{
                     else if ($_POST['crud'] == 'del') $controller->load_page('actions-kardex');
                     else if ($_POST['crud'] == 'edi') $controller->load_page('actions-kardex');
                     break;
+                case 'cierre-inventario':
+                    if (!isset($_POST['crud'])) $controller->load_view_user('cierre-inventario');
+                    else if ($_POST['crud'] == 'add') $controller->load_page('actions-inventario');
+                    else if ($_POST['crud'] == 'del') $controller->load_page('actions-inventario');
+                    else if ($_POST['crud'] == 'edi') $controller->load_page('actions-inventario');
+                    break;
                 case 'registro':
-                    if (!isset($_POST['crud'])) $controller->load_view_user('registro');
+                    if (!isset($_POST['crud']) AND !isset($_POST['comp'])) $controller->load_view_user('registro');
+                    else if (isset($_POST['comp'])) $controller->load_view_user('comprobante');
                     else if ($_POST['crud'] == 'add') $controller->load_page('actions-comprobante');
                     else if ($_POST['crud'] == 'del') $controller->load_page('actions-comprobante');
                     else if ($_POST['crud'] == 'edi') $controller->load_page('actions-comprobante');
+                    break;
+                case 'comprobante':
+                    if (!isset($_POST['crud']) AND !isset($_POST['deta'])) $controller->load_view_user('comprobante');
+                    else if (isset($_POST['crud'])) $controller->load_page('actions-comprobante');
+                    else if (isset($_POST['deta'])) $controller->load_page('actions-comprobante');
                     break;
                 case 'productos':
                     if (!isset($_POST['crud'])) $controller->load_view_user('productos');
@@ -65,7 +77,7 @@ class Router{
                     $user_session->logout();
                     break;
                 default:
-                    $controller->load_view('inicio');
+                    $controller->load_view('error404');
                     break;
             }
         } else {
@@ -93,6 +105,10 @@ class Router{
                                 $_SESSION['usua_nom'] = $session[0]['usua_nom'];
                                 $_SESSION['usua_dir'] = $session[0]['usua_dir'];
                                 $_SESSION['usua_rol'] = $session[0]['usua_rol'];
+                                $_SESSION['empr_nom'] = $session[0]['empr_nom'];
+                                $_SESSION['empr_des'] = $session[0]['empr_des'];
+                                $_SESSION['empr_log'] = $session[0]['empr_log'];
+                                $_SESSION['empr_nit'] = $session[0]['empr_nit'];
                                 header('Location: ./kardex');
                             }
                         }

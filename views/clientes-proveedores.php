@@ -9,25 +9,27 @@ $num_tit = empty($datos) ? 0 : count($datos);
 <title>Clientes / Proveedores | iCash</title>
 <div class="container-cab">
 	<h3>Clientes / Proveedores</h3>
-	<div>
-		<button type="button" class="btn btn-primary" data-toggle="modal" onClick="limpiar_add()" data-target="#Modal-add-cliente">
+	<div class="cont-flex">
+		<button type="button" class="btn btn-primary" data-toggle="modal" onClick="limpiar_add()" data-target="#Modal-add-clie">
 		  Agregar Cliente
 		</button>
-		<button type="button" class="btn btn-primary" data-toggle="modal" onClick="limpiar_add()" data-target="#Modal-add-proveedor">
+		<button type="button" class="btn btn-primary" data-toggle="modal" onClick="limpiar_add()" data-target="#Modal-add-prov">
 		  Agregar Proveedor
 		</button>
 	</div>	
 </div>
 <?php 
 $datos = 1;
+if ( is_array( $datos ) ) {
 $num_tit = empty($datos) ? 0 : count($datos);
+}
 $modal = new FunctionModel();
-$modal->ventana_modal("add-cliente",$datos, "", "Agregar Cliente", "form-client-add");
-$modal->ventana_modal("edi-cliente",$datos, "", "Editar Cliente", "form-client-edi");
-$modal->ventana_modal("del-cliente",$datos, "", "Eliminar Cliente", "form-client-del");
-$modal->ventana_modal("add-proveedor",$datos, "", "Agregar proveedor", "form-proveedor-add");
-$modal->ventana_modal("edi-proveedor",$datos, "", "Editar proveedor", "form-proveedor-edi");
-$modal->ventana_modal("del-proveedor",$datos, "", "Eliminar proveedor", "form-proveedor-del");
+$modal->ventana_modal("add-clie",$datos, "", "Agregar Cliente", "form-client-add");
+$modal->ventana_modal("edi-clie",$datos, "", "Editar Cliente", "form-client-edi");
+$modal->ventana_modal("del-clie",$datos, "", "Eliminar Cliente", "form-persona-del");
+$modal->ventana_modal("add-prov",$datos, "", "Agregar proveedor", "form-proveedor-add");
+$modal->ventana_modal("edi-prov",$datos, "", "Editar proveedor", "form-proveedor-edi");
+$modal->ventana_modal("del-prov",$datos, "", "Eliminar proveedor", "form-persona-del");
  ?>
 <div class="cont-pad-tre">
 	<?php 
@@ -81,9 +83,9 @@ $modal->ventana_modal("del-proveedor",$datos, "", "Eliminar proveedor", "form-pr
 	 							<td>".$clientes_data[$i]['clpr_nom']."</td>
 								<td>".$clientes_data[$i]['clpr_cor']."</td>
 								<td>".$clientes_data[$i]['clpr_cel']."</td>
-								<td>
+								<td class='cont-flex'>
 									<button type='button' class='btn btn-info'><i class='fa fa-pencil-alt'></i></button>
-	      							<button type='button' class='btn btn-danger'><i class='fa fa-trash-alt'></i></button>
+	      							<button type='button' class='btn btn-danger btn-sm' data-toggle='modal' data-target='#Modal-del-clie' data-name='".$clientes_data[$i]['clpr_nom']."' data-clpr_cod='".$clientes_data[$i]['clpr_cod']."' data-clpr_nom='".$clientes_data[$i]['clpr_cod']."'><i class='fa fa-trash-alt'></i></button>
 	      						</td>";
 	      					}
  						 ?>
@@ -125,9 +127,9 @@ $modal->ventana_modal("del-proveedor",$datos, "", "Eliminar proveedor", "form-pr
 	 							<td>".$proveedores_data[$i]['clpr_emp']."</td>							
 								<td>".$proveedores_data[$i]['clpr_cor']."</td>
 								<td>".$proveedores_data[$i]['clpr_cel']."</td>
-								<td>
+								<td class='cont-flex'>
 									<button type='button' class='btn btn-info'><i class='fa fa-pencil-alt'></i></button>
-	      							<button type='button' class='btn btn-danger'><i class='fa fa-trash-alt'></i></button>
+	      							<button type='button' class='btn btn-danger btn-sm' data-toggle='modal' data-target='#Modal-del-prov' data-name='".$proveedores_data[$i]['clpr_nom']."' data-clpr_cod='".$proveedores_data[$i]['clpr_cod']."' data-clpr_nom='".$proveedores_data[$i]['clpr_cod']."'><i class='fa fa-trash-alt'></i></button>
 	      						</td>";
 	      					}
  						 ?>

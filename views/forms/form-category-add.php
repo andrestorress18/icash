@@ -15,6 +15,6 @@
   	    </div>
       </div>
     </div>     	
-	<button type="submit" id="add-btn_guardar" class="btn btn-success">Guardar</button>
+	<button type="submit" id="add-cate-btn_guardar" class="btn btn-success">Guardar</button>
 	<input type="hidden" name="crud" value="add-cate">
 </form>

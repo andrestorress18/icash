@@ -39,7 +39,7 @@
             <div class="form-group">
 		        <label>Cargar imagen</label>
 		        <div class="input-group edi-image-preview">
-		            <input type="text" class="form-control image-preview-filename" id="edi_usua_img" disabled="disabled">
+		            <input type="text" class="form-control image-preview-filename" id="edi_usua_fot" disabled="disabled">
 		            <input type="button" id="edi-img"  class="input-group-btn btn btn-secondary image-preview-input" value="Cambiar imagen">
 		            <span hidden id="spn-inp-file" class="input-group-btn">
 		                <button type="button" class="btn btn-secondary image-preview-clear" id="edi-image-preview-clear" style="display:none;">
@@ -49,7 +49,7 @@
 		                <div class="btn btn-secondary image-preview-input" id="edi-image-preview-input" data-placement="bottom">
 		                    <span class="fa fa-upload"></span>
 		                    <span class="image-preview-input-title" id="edi-input-img-title">Subir</span>
-					        <input type="file" accept="image/png, image/jpeg, image/gif" id="usua_img" name="usua_img" required />
+					        <input type="file" accept="image/png, image/jpeg, image/gif" id="usua_fot" name="usua_fot" required />
 		                </div>
 		            </span>
 		        </div>
@@ -62,7 +62,7 @@
 <script type="text/javascript">
 	function limpiar_edi(){
 		$('.edi-image-preview').attr("data-content","").popover('hide');
-        $('#edi_usua_img').val("");
+        $('#edi_usua_fot').val("");
         $('#edi-image-preview-clear').hide();
         $('#edi-image-preview-input input:file').val("");
         $("#edi-input-img-title").text("Subir");
@@ -77,18 +77,18 @@
 		document.getElementById("edi-pas").hidden = false;
 		document.getElementById("spn-inp-file").hidden = true;
 		document.getElementById("edi-img").hidden = false;
-		document.getElementById("usua_img").required = false;
-     	document.ready = document.getElementById("usua_enti_fk").value = document.getElementById("edi_usua_enti_fk").value;
+		document.getElementById("usua_fot").required = false;
+     	document.ready = document.getElementById("usua_empr_fk").value = document.getElementById("edi_usua_empr_fk").value;
      	document.ready = document.getElementById("usua_est").value = document.getElementById("edi_usua_est").value;
      	document.ready = document.getElementById("usua_rol").value = document.getElementById("edi_usua_rol").value;
-     	var path = document.getElementById("edi_usua_img").value
-     	document.ready = document.getElementById("edi_usua_img").value = path.split('/').reverse()[0];
+     	var path = document.getElementById("edi_usua_fot").value
+     	document.ready = document.getElementById("edi_usua_fot").value = path.split('/').reverse()[0];
 	};
 	$(document).on('click', '#edi-img', function(){ 
 		  document.getElementById("spn-inp-file").hidden = false;
 		  document.getElementById("edi-img").hidden = true;
-		  document.getElementById("usua_img").required = true;
-		  document.getElementById("edi_usua_img").value = '';
+		  document.getElementById("usua_fot").required = true;
+		  document.getElementById("edi_usua_fot").value = '';
 	});
 	$(document).on('click', '#edi-pas', function(){ 
 		  inp = document.getElementById("New_usua_pas");

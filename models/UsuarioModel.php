@@ -39,7 +39,8 @@ class UsuarioModel extends Model{
     }
     
     public function validate_user($email, $pass) {
-        $this->query = "SELECT * FROM tbl_usuario
+        $this->query = "SELECT * FROM tbl_usuario AS U
+            INNER JOIN tbl_empresa AS E ON E.empr_nit = U.usua_empr_fk
             WHERE  usua_pas = MD5('$pass') AND usua_cor = '$email'";
         $this->get_query();
         $data = array();

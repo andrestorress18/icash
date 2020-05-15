@@ -150,8 +150,7 @@ button.btn.btn-secondary.image-preview-clear {
 
 body {
   margin: 0;
-  padding: 0;
-  font-family: "Montserrat", sans-seri; }
+  padding: 0; }
 
 .contenedor {
   display: flex;
@@ -754,6 +753,16 @@ body {
     width: 100%;
     height: auto; }
   .container-e404 .e404 {
+    width: 100%;
+    text-align: left; }
+
+.container-e401 {
+  width: 50%;
+  min-width: 400px; }
+  .container-e401 img {
+    width: 100%;
+    height: auto; }
+  .container-e401 .e401 {
     width: 100%;
     text-align: left; }
 
@@ -1696,5 +1705,9 @@ footer {
 .row {
   margin-right: 0px !important;
   margin-left: 0px !important; }
+
+.tab-content {
+  padding: 10px 5px;
+  background-color: #fff !important; }
 
 /*# sourceMappingURL=style.css.map */

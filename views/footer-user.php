@@ -4,11 +4,7 @@ print('
   		</div>	
   	</div>
 </body>
-<script>
-  $(document).ready( function () {
-    $("#tablaModel").DataTable();
-  });
-</script>
 <footer></footer>
+<script src="./public/js/icash.js"></script>
 </html>
 ');

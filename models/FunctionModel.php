@@ -1,25 +1,29 @@
 <?php
 class FunctionModel {
     public function ventana_modal($id, $data = array(), $size, $title, $form) {
+      if ( is_array( $data ) ) {
         $num_tit = empty($data) ? 0 : count($data);
-        $modal = "<div class='modal fade ";
-        if ($size != "") {
-            $modal .= "bd-example-modal-" . $size;
-        }
-        $modal .= "' id='Modal-" . $id . "' tabindex='-1' role='dialog' aria-hidden='true'>
-          <div class='modal-dialog modal-dialog-centered ";
-        if ($size != "") {
-            $modal .= "modal-" . $size;
-        }
-        $modal .= "' role='document'>
-            <div class='modal-content'>
-              <div class='modal-header'>
-                <h5 class='modal-title' id='modaltitle'>" . $title . "</h5>
-                <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
-                  <span aria-hidden='true'>&times;</span>
-                </button>
-              </div>
-              <div class='modal-body'>";
+      }else{
+        $num_tit = 0;
+      }
+      $modal = "<div class='modal fade ";
+      if ($size != "") {
+          $modal .= "bd-example-modal-" . $size;
+      }
+      $modal .= "' id='Modal-" . $id . "' tabindex='-1' role='dialog' aria-hidden='true'>
+        <div class='modal-dialog modal-dialog-centered ";
+      if ($size != "") {
+          $modal .= "modal-" . $size;
+      }
+      $modal .= "' role='document'>
+          <div class='modal-content'>
+            <div class='modal-header'>
+              <h5 class='modal-title' id='modaltitle'>" . $title . "</h5>
+              <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                <span aria-hidden='true'>&times;</span>
+              </button>
+            </div>
+            <div class='modal-body'>";
         echo $modal;
         $form_dir = "./views/forms/" . $form . ".php";
         include "$form_dir";

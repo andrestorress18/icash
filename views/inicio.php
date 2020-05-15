@@ -9,7 +9,7 @@
 				<li><a href="inicio" title="">Inicio</a></li>
 				<li>
 				<?php if ($_SESSION['Sesion'] == true) {
-					echo "<a class='btn-sesion' href='usuarios' title=''>Administrar</a>";
+					echo "<a class='btn-sesion' href='kardex' title=''>Administrar</a>";
 				}else{
 					echo "<a class='btn-sesion' href='login' title=''>Iniciar Sesión</a>";
 				} ?>
@@ -88,7 +88,7 @@
 	<div class="vs-quien">
 		<div class="vs-left">
 			<h2>iCash</h2>
-			<p>El propósito del software contable iCash a desarrollar, es brindar una eficiente solución a las diferentes empresas que generar una contabilidad básica de su producción, de una manera viable y fácil a adquirir a dichos usuarios, satisfaciendo la necesidad de almacenar información de vital importancia para sus finanzas, y que se compone básicamente por diferentes funciones que permiten mostrar cálculos de las cuentas registradas.</p>
+			<p>Find Parking Es un sistema web que desea dar a solución a la necesidad de información sobre los parqueaderos existentes en el área de Fusagasugá. La aplicación web contara con toda la información del parqueadero, es decir, mostrara horario de atención, cupos disponibles, valor por hora y contacto del sitio.</p>
 			<a href="quienes-somos" class="btn-sim">Ver más</a>
 		</div>
 		<div class="vs-right">

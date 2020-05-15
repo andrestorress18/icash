@@ -1,25 +1,27 @@
 <title>Productos | iCash</title>
 <div class="container-cab">
 	<h3>Productos</h3>
-	<div class="contenedor-flex">
-		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal-add-categoria">
+	<div class="cont-flex">
+		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal-add-cate">
 		  Agregar categoria
 		</button>
-		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal-add">
+		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal-add-prod">
 		  Agregar producto
 		</button>
 	</div>
 </div>
 <?php 
 $datos = 1;
+if ( is_array( $datos ) ) {
 $num_tit = empty($datos) ? 0 : count($datos);
+}
 $modal = new FunctionModel();
-$modal->ventana_modal("add",$datos, "", "Añadir producto", "form-product-add");
-$modal->ventana_modal("edi",$datos, "", "Editar producto", "form-product-edi");
-$modal->ventana_modal("del",$datos, "", "Eliminar producto", "form-product-del");
-$modal->ventana_modal("add-categoria",$datos, "", "Añadir categoria", "form-category-add");
-$modal->ventana_modal("edi-categoria",$datos, "", "Editar categoria", "form-category-edi");
-$modal->ventana_modal("del-categoria",$datos, "", "Eliminar categoria", "form-category-del");
+$modal->ventana_modal("add-prod",$datos, "", "Añadir producto", "form-product-add");
+$modal->ventana_modal("edi-prod",$datos, "", "Editar producto", "form-product-edi");
+$modal->ventana_modal("del-prod",$datos, "", "Eliminar producto", "form-product-del");
+$modal->ventana_modal("add-cate",$datos, "", "Añadir categoria", "form-category-add");
+$modal->ventana_modal("edi-cate",$datos, "", "Editar categoria", "form-category-edi");
+$modal->ventana_modal("del-cate",$datos, "", "Eliminar categoria", "form-category-del");
  ?>
 <div class="cont-pad-tre">
 	<?php 
@@ -49,7 +51,7 @@ $modal->ventana_modal("del-categoria",$datos, "", "Eliminar categoria", "form-ca
 	<div class="tab-content" id="myTabContent">
 		<div class='tab-pane fade show active' id='tab_1' role='tabpanel' aria-labelledby='tab_1-tab'>
 			<div class='container-tabla'>
-				<table id='tbl_cate_1' class='table table-striped'>
+				<table id='tbl_cate_1' class="table table-striped">
 				  <thead>
 				    <tr>
 				      <th scope='col'>Codigo</th>
@@ -71,9 +73,9 @@ $modal->ventana_modal("del-categoria",$datos, "", "Eliminar categoria", "form-ca
 							<td>".$productos_data[$i]['prod_des']."</td>
 							<td>".$productos_data[$i]['prod_sto']."</td>
 							<td>".$productos_data[$i]['prod_pve']."</td>
-							<td>
+							<td class='cont-flex' >
 								<button type='button' class='btn btn-info'><i class='fa fa-pencil-alt'></i></button>
-		  						<button type='button' class='btn btn-danger'><i class='fa fa-trash-alt'></i></button>
+		  						<button type='button' class='btn btn-danger btn-sm' data-toggle='modal' data-target='#Modal-del-prod' data-name='".$productos_data[$i]['prod_nom']."' data-prod_cod='".$productos_data[$i]['prod_cod']."' data-prod_nom='".$productos_data[$i]['prod_cod']."'><i class='fa fa-trash-alt'></i></button>
 							</td></tr>
  							";
  						}
@@ -112,9 +114,9 @@ $modal->ventana_modal("del-categoria",$datos, "", "Eliminar categoria", "form-ca
  							<td>".$categorias_data[$i]['cate_cod']."</td>
  							<td>".$categorias_data[$i]['cate_nom']."</td>
 							<td>".$categorias_data[$i]['cate_des']."</td>
-							<td>
+							<td class='cont-flex'>
 								<button type='button' class='btn btn-info'><i class='fa fa-pencil-alt'></i></button>
-		  						<button type='button' class='btn btn-danger'><i class='fa fa-trash-alt'></i></button>
+		  						<button type='button' class='btn btn-danger btn-sm' data-toggle='modal' data-target='#Modal-del-cate' data-name='".$categorias_data[$i]['cate_nom']."' data-cate_cod='".$categorias_data[$i]['cate_cod']."' data-cate_nom='".$categorias_data[$i]['cate_nom']."'><i class='fa fa-trash-alt'></i></button>
 							</td>
 						</tr>
  							";
@@ -125,10 +127,10 @@ $modal->ventana_modal("del-categoria",$datos, "", "Eliminar categoria", "form-ca
 				</table>
 			</div>
 			<script>
-				$(document).ready(function () {
-				  $('#tbl_cate_2').DataTable();
-				  $('.dataTables_length').addClass('bs-select');
-				});
+				$(document).ready( function () {
+				    $('#tbl_cate_2').DataTable();
+				    $('.dataTables_length').addClass('bs-select');
+				} );
 			</script>
 		</div>
 	</div>
