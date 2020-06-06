@@ -1,4 +1,8 @@
 <?php
+if ($_SESSION['usua_rol']<>"Administrador") {
+	$controller  = new ViewController();
+	$controller->load_view('error401');
+}else{
 print('<title>Usuarios | iCash</title>');
 /***********INICIO CUERPO***********/
 $usuario_controller = new UsuarioController();
@@ -6,7 +10,17 @@ $usuario = $usuario_controller->get();
 if ( is_array( $usuario ) ) {
 	$num_usuario = empty($usuario) ? 0 : count($usuario);
 }
-$datos = array_keys($usuario[0]);
+$nada = 0;
+$datos = array(
+	0 => 'usua_cod',
+	1 => 'usua_ced',
+	2 => 'usua_nom',
+	3 => 'usua_cor',
+	4 => 'usua_pas',
+	5 => 'usua_fot',
+	6 => 'usua_rol',
+	7 => 'usua_est'
+	);
 if ( is_array( $datos) ) {
 $num_tit = empty($datos) ? 0 : count($datos);
 }
@@ -37,7 +51,7 @@ if ($_GET['r'] == 'usuarios' && !isset($_POST['crud'])) {
     $modal = new FunctionModel();
     $modal->ventana_modal("add",$datos, "", "Añadir usuario", "form-user-add");
     $modal->ventana_modal("edi",$datos, "", "Editar usuario", "form-user-edi");
-    $modal->ventana_modal("del",$datos, "", "Eliminar usuario", "form-user-del");
+    $modal->ventana_modal("del",$nada, "", "Eliminar usuario", "form-user-del");
 }
 if (empty($usuario)) {
     print('
@@ -113,3 +127,4 @@ print("<script>
 	    $('#tbl-usuario').DataTable();
 	} );
 </script>");
+}

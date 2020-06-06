@@ -28,6 +28,9 @@ class Router{
                     else if ($_POST['crud'] == 'del') $controller->load_page('actions-kardex');
                     else if ($_POST['crud'] == 'edi') $controller->load_page('actions-kardex');
                     break;
+                case 'ayuda':
+                    if (!isset($_POST['crud'])) $controller->load_view_user('ayuda');
+                    break;
                 case 'cierre-inventario':
                     if (!isset($_POST['crud'])) $controller->load_view_user('cierre-inventario');
                     else if ($_POST['crud'] == 'add') $controller->load_page('actions-inventario');
@@ -45,7 +48,7 @@ class Router{
                     if (!isset($_POST['crud']) AND !isset($_POST['deta'])) $controller->load_view_user('comprobante');
                     else if (isset($_POST['crud'])) $controller->load_page('actions-comprobante');
                     else if (isset($_POST['deta'])) $controller->load_page('actions-comprobante');
-                    break;
+                    break;                    
                 case 'productos':
                     if (!isset($_POST['crud'])) $controller->load_view_user('productos');
                     else if ($_POST['crud'] == 'add') $controller->load_page('actions-producto');
@@ -65,10 +68,9 @@ class Router{
                 case 'clientes-proveedores':
                     if (!isset($_POST['crud'])) $controller->load_view_user('clientes-proveedores');
                     else if ($_POST['crud'] == 'add-cliente') $controller->load_page('actions-persona');
-                    else if ($_POST['crud'] == 'del-cliente') $controller->load_page('actions-persona');
+                    else if ($_POST['crud'] == 'del-clpr') $controller->load_page('actions-persona');
                     else if ($_POST['crud'] == 'edi-cliente') $controller->load_page('actions-persona');
                     else if ($_POST['crud'] == 'add-proveedor') $controller->load_page('actions-persona');
-                    else if ($_POST['crud'] == 'del-proveedor') $controller->load_page('actions-persona');
                     else if ($_POST['crud'] == 'edi-proveedor') $controller->load_page('actions-persona');
                     else if ($_POST['crud'] == 'edit-pass') $controller->load_page('actions-usuario');
                     break;

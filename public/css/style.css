@@ -320,7 +320,8 @@ body {
       .menu-left .menu-cab {
         display: none; } }
     .menu-left .menu-cab .menu-cab-img {
-      width: 70%;
+      width: 60%;
+      padding: 5px;
       height: auto;
       overflow: hidden; }
       .menu-left .menu-cab .menu-cab-img img {
@@ -392,7 +393,6 @@ body {
         width: 100%;
         height: 16px;
         display: block;
-        overflow: hidden;
         font-size: 14px;
         font-weight: 500; }
 
@@ -726,7 +726,7 @@ body {
   width: 250px;
   border-bottom: 1px solid #FF6600; }
 
-.e404 {
+.e404, .e401 {
   height: 100vh; }
 
 .container-form {
@@ -1709,5 +1709,12 @@ footer {
 .tab-content {
   padding: 10px 5px;
   background-color: #fff !important; }
+
+.visor-pdf {
+  width: 100%;
+  height: calc(100vh - 78px); }
+
+.tbl-comp-deta td {
+  padding: 3px !important; }
 
 /*# sourceMappingURL=style.css.map */

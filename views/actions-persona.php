@@ -30,9 +30,9 @@ if(isset($_POST['crud'])){
         var_dump($new_clpr);
         $persona_controller->add($new_clpr);
         header('Location: ./clientes-proveedores&success=Proveedor guardado');
-    } else if ($_POST['crud'] == 'del') {
+    } else if ($_POST['crud'] == 'del-clpr') {
         $persona_controller->del($_POST['clpr_id']);
-        header('Location: ./clientes-proveedores&success=Cliente eliminado');
+        header('Location: ./clientes-proveedores&success=Persona eliminado');
     } else if ($_POST['crud'] == 'edi') {
         $act_clpr = array(
             'clpr_tit' => $_POST['clpr_tit'],

@@ -1,5 +1,3 @@
-<title>Comprobante | iCash</title>
-
 <div class="container-cab">
 	<h3>Comprobante</h3>
 	<div class="contenedor-flex">

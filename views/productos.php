@@ -11,17 +11,27 @@
 	</div>
 </div>
 <?php 
-$datos = 1;
-if ( is_array( $datos ) ) {
-$num_tit = empty($datos) ? 0 : count($datos);
-}
+$nada = 0;
+$datos_cate = array(
+    0  => 'cate_cod',
+    1  => 'cate_nom',
+    2  => 'cate_des'
+);
+$datos_prod = array(
+    0  => 'prod_cod',
+    1  => 'prod_nom',
+    2  => 'prod_des',
+    3  => 'prod_pve',
+    2  => 'prod_des'
+);
+$num_tit = empty($datos_prod) ? 0 : count($datos_prod);
 $modal = new FunctionModel();
-$modal->ventana_modal("add-prod",$datos, "", "Añadir producto", "form-product-add");
-$modal->ventana_modal("edi-prod",$datos, "", "Editar producto", "form-product-edi");
-$modal->ventana_modal("del-prod",$datos, "", "Eliminar producto", "form-product-del");
-$modal->ventana_modal("add-cate",$datos, "", "Añadir categoria", "form-category-add");
-$modal->ventana_modal("edi-cate",$datos, "", "Editar categoria", "form-category-edi");
-$modal->ventana_modal("del-cate",$datos, "", "Eliminar categoria", "form-category-del");
+$modal->ventana_modal("add-prod",$datos_prod, "", "Añadir producto", "form-product-add");
+$modal->ventana_modal("edi-prod",$datos_prod, "", "Editar producto", "form-product-edi");
+$modal->ventana_modal("del-prod",$nada, "", "Eliminar producto", "form-product-del");
+$modal->ventana_modal("add-cate",$datos_cate, "", "Añadir categoria", "form-category-add");
+$modal->ventana_modal("edi-cate",$datos_cate, "", "Editar categoria", "form-category-edi");
+$modal->ventana_modal("del-cate",$nada, "", "Eliminar categoria", "form-category-del");
  ?>
 <div class="cont-pad-tre">
 	<?php 
@@ -58,6 +68,7 @@ $modal->ventana_modal("del-cate",$datos, "", "Eliminar categoria", "form-categor
 				      <th scope='col'>Nombre</th>
 				      <th scope='col'>Descripción</th>
 				      <th scope='col'>Stock</th>
+				      <th scope='col'>Precio Compra</th>
 				      <th scope='col'>Precio venta</th>
 				      <th scope='col'>Opciones</th>
 				    </tr>
@@ -72,9 +83,14 @@ $modal->ventana_modal("del-cate",$datos, "", "Eliminar categoria", "form-categor
  							<td>".$productos_data[$i]['prod_nom']."</td>
 							<td>".$productos_data[$i]['prod_des']."</td>
 							<td>".$productos_data[$i]['prod_sto']."</td>
-							<td>".$productos_data[$i]['prod_pve']."</td>
+							<td>$ ".number_format($productos_data[$i]['prod_pco'])."</td>
+							<td>$ ".number_format($productos_data[$i]['prod_pve'])."</td>
 							<td class='cont-flex' >
-								<button type='button' class='btn btn-info'><i class='fa fa-pencil-alt'></i></button>
+								<button type='button' class='btn btn-info' data-toggle='modal' data-target='#Modal-edi-prod' data-name='".$productos_data[$i]['prod_cod']."'";
+                                            for ($a=0; $a < $num_tit; $a++) { 
+                                                echo ' data-'.$datos_prod[$a].'="'.$productos_data[$i][$datos_prod[$a]].'" ';
+                                            }
+								echo "><i class='fa fa-pencil-alt'></i></button>
 		  						<button type='button' class='btn btn-danger btn-sm' data-toggle='modal' data-target='#Modal-del-prod' data-name='".$productos_data[$i]['prod_nom']."' data-prod_cod='".$productos_data[$i]['prod_cod']."' data-prod_nom='".$productos_data[$i]['prod_cod']."'><i class='fa fa-trash-alt'></i></button>
 							</td></tr>
  							";
@@ -115,7 +131,7 @@ $modal->ventana_modal("del-cate",$datos, "", "Eliminar categoria", "form-categor
  							<td>".$categorias_data[$i]['cate_nom']."</td>
 							<td>".$categorias_data[$i]['cate_des']."</td>
 							<td class='cont-flex'>
-								<button type='button' class='btn btn-info'><i class='fa fa-pencil-alt'></i></button>
+								<button type='button' class='btn btn-info' data-toggle='modal' data-target='#Modal-edi-cate' data-cate_cod='".$categorias_data[$i]['cate_cod']."' data-cate_nom='".$categorias_data[$i]['cate_nom']."' data-cate_des='".$categorias_data[$i]['cate_des']."' data-name='".$categorias_data[$i]['cate_cod']."'><i class='fa fa-pencil-alt'></i></button>
 		  						<button type='button' class='btn btn-danger btn-sm' data-toggle='modal' data-target='#Modal-del-cate' data-name='".$categorias_data[$i]['cate_nom']."' data-cate_cod='".$categorias_data[$i]['cate_cod']."' data-cate_nom='".$categorias_data[$i]['cate_nom']."'><i class='fa fa-trash-alt'></i></button>
 							</td>
 						</tr>

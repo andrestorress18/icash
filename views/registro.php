@@ -3,9 +3,9 @@
 	<h3>Registro</h3>
 	<div class="cont-flex">
 		<form action="comprobante" method="POST">
-			<input type="hidden" name="accion" value="devolucion" placeholder="">
+			<input type="hidden" name="accion" value="compra" placeholder="">
 			<button type="submit" class="btn btn-primary">
-		  Agregar Devolución
+		  Agregar Compra
 		</button>
 		</form>
 		<form action="comprobante" method="POST">
@@ -15,9 +15,9 @@
 		</button>
 		</form>
 		<form action="comprobante" method="POST">
-			<input type="hidden" name="accion" value="compra" placeholder="">
+			<input type="hidden" name="accion" value="devolucion" placeholder="">
 			<button type="submit" class="btn btn-primary">
-		  Agregar Compra
+		  Agregar Devolución
 		</button>
 		</form>
 	</div>
@@ -69,9 +69,8 @@ $modal->ventana_modal("del",$datos, "", "Eliminar Compra", "form-product-del");
 						<td>".$comprobante_data[$a]['comp_des']."</td>
 						<td>".$comprobante_data[$a]['tipo_nom']."</td>
 						<td>".$comprobante_data[$a]['clpr_nom']."</td>
-						<td>".$comprobante_data[$a]['comp_val']."</td>
+						<td>$ ".number_format($comprobante_data[$a]['comp_val'])."</td>
 				      	<td class='cont-flex'>	
-				      		<button type='button' class='btn btn-primary'><i class='fa fa-eye'></i></button>
 					      	<button type='button' class='btn btn-info'><i class='fa fa-pencil-alt'></i></button>
 					      	<button type='button' class='btn btn-danger'><i class='fa fa-trash-alt'></i></button>
 					    </td>
@@ -80,45 +79,13 @@ $modal->ventana_modal("del",$datos, "", "Eliminar Compra", "form-product-del");
   			</tbody>
 		</table>
 	</div>
-	<div class="modal fade" id="staplesbmincart" >
-        <div class="modal-dialog modal-dialog-centered" role="document" >
-            <div class="modal-content" >
-                <div class="modal-header" >
-                    <h4>Cart
-                         <button type="button" data-dismiss="modal" class="close" ><i class="fa fa-close" ></i ></button >
-                    </h4 >
-                </div >
-                <div class="modal-body" >
-                    <div class="row" id="myCart" >
-
-                    </div >
-                </div >
-                <div class="modal-footer" >
-                    <div class="col-md-6" >
-                        <a  ID="hlCart" runat="server" class="btn btn-success pull-left" >View Shipment <i class="fa fa-truck" ></i ></a >
-                     </div >
-                <div class="col-md-6" >
-                    <button type="button" data-dismiss="modal" onclick="cart.clean()" class="btn btn-link" >Clear</button >
-                </div >
-            </div >
-        </div >
-    </div >
- </div >
 </div>
 <script>
 	$(document).ready(function () {
-	  $('#tbl_cuentas').DataTable();
+	  $('#tbl_cuentas').DataTable({
+	  	"order": [[ 0, "desc" ]]
+	  });
 	  $('.dataTables_length').addClass('bs-select');
 	});
-	var cart = new Cart('[nombre del carro]');
-	$('.buy-item').click(function(){
-    var item = {
-        'id': $(this).attr('data-id'),
-        'product': $(this).attr('data-product'),
-        'qty': $(this).attr('data-qty'),
-        // M's propiedades aqui...
-        'price': parseFloat($(this).attr('data-price'))
-    }
-    cart.add(item);
-});
+
 </script>

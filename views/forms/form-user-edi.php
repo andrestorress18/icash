@@ -17,8 +17,30 @@
     <div class="form-row align-items-center">
       <div class="col-sm-6 my-1">
       	<div class="form-group">
-	    	<label for="usua_ema">Correo electronico</label>
-		    <input type="email" name="usua_ema" class="form-control" id="edi_usua_ema" required pattern="^[^@]+@[^@]+\.[a-zA-Z]{2,}$" title="example@example.com">
+	    	<label for="usua_est">Estado</label>
+		    <select name="usua_est" class="form-control" id="edi_usua_est" required>
+				<option value="">Seleccione</option>
+				<option value="Activo" >Activo</option>
+				<option value="Inactivo" >Inactivo</option>
+			</select>
+	    </div>
+      </div>
+      <div class="col-sm-6 my-1">
+      	<div class="form-group">
+	    	<label for="usua_rol">Rol</label>
+		    <select name="usua_rol" class="form-control" id="edi_usua_rol" required>
+				<option value="">Seleccione</option>
+				<option value="Operario" >Operario</option>
+				<option value="Administrador" >Administrador</option>
+			</select>
+	    </div>
+      </div>
+  </div>
+    <div class="form-row align-items-center">
+      <div class="col-sm-6 my-1">
+      	<div class="form-group">
+	    	<label for="usua_cor">Correo electronico</label>
+		    <input type="email" name="usua_cor" class="form-control" id="edi_usua_cor" required pattern="^[^@]+@[^@]+\.[a-zA-Z]{2,}$" title="example@example.com">
 	    </div>
       </div>
       <div class="col-sm-6 my-1">
@@ -78,9 +100,7 @@
 		document.getElementById("spn-inp-file").hidden = true;
 		document.getElementById("edi-img").hidden = false;
 		document.getElementById("usua_fot").required = false;
-     	document.ready = document.getElementById("usua_empr_fk").value = document.getElementById("edi_usua_empr_fk").value;
-     	document.ready = document.getElementById("usua_est").value = document.getElementById("edi_usua_est").value;
-     	document.ready = document.getElementById("usua_rol").value = document.getElementById("edi_usua_rol").value;
+     	
      	var path = document.getElementById("edi_usua_fot").value
      	document.ready = document.getElementById("edi_usua_fot").value = path.split('/').reverse()[0];
 	};

@@ -30,7 +30,9 @@
 			<?php if ($_SESSION['usua_rol'] == "Super administrador" OR $_SESSION['usua_rol'] == "Administrador") {?>
 				<li class="menu-item <?php echo ($_GET['r']=='usuarios')?'item-select':'';?>"><a href="usuarios" ><div class="item-icon"><span class="fa fa-users"></span></div><div class="btn-bars-resp">Usuario</div></a></li>
 			<?php } ?>
-		</div>
+			<li class="menu-item <?php echo ($_GET['r']=='ayuda')?'item-select':'';?>"><a href="ayuda" ><div class="item-icon"><span class="fa fa-info-circle"></span></div><div class="btn-bars-resp">Ayuda</div></a></li>
+		</ul>
+	</div>
 	<div class="copyright">
 		<div class="copyright-img">
 		  <img src="./public/img/system/iCash-logo-ico.png">

@@ -88,8 +88,7 @@
 	<div class="vs-quien">
 		<div class="vs-left">
 			<h2>iCash</h2>
-			<p>Find Parking Es un sistema web que desea dar a solución a la necesidad de información sobre los parqueaderos existentes en el área de Fusagasugá. La aplicación web contara con toda la información del parqueadero, es decir, mostrara horario de atención, cupos disponibles, valor por hora y contacto del sitio.</p>
-			<a href="quienes-somos" class="btn-sim">Ver más</a>
+			<p>Es un sistema web que se adapta a cualquier tipo de empresa, en el cual se lleve a cabo un control de inventario, manejando el método promedio ponderado. La aplicación web contara con la información necesaria para llevar acabo un control adecuado en suministros, con los movimientos de compra, venta y posibles devoluciones de las anteriores.</p>
 		</div>
 		<div class="vs-right">
 			<img src="public/img/system/icash-logo-h.png" alt="">

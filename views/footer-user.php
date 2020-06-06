@@ -5,6 +5,5 @@ print('
   	</div>
 </body>
 <footer></footer>
-<script src="./public/js/icash.js"></script>
 </html>
 ');
