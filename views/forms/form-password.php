@@ -20,7 +20,7 @@
   <input type="hidden" name="crud" value="edit-pass">
 </form>
 <script type="text/javascript">
-	document.getElementById('pass_act').addEventListener('input', function(evt) {
+  document.getElementById('pass_act').addEventListener('input', function(evt) {
     const pass_act = evt.target,
           alert = document.getElementById('alert'),
           alert_div = document.getElementById('alert-div'),
@@ -41,9 +41,9 @@
       btn.disabled = true;
     }
   });
-	document.getElementById('pass_new').addEventListener('input', function(evt) {
-    	const pass_new = evt.target,
-    	alert = document.getElementById('alert'),
+  document.getElementById('pass_new').addEventListener('input', function(evt) {
+      const pass_new = evt.target,
+      alert = document.getElementById('alert'),
       alert_div = document.getElementById('alert-div'),
       btn = document.getElementById('btn_cambiar'),
       inp = document.getElementById('pass_new2'),

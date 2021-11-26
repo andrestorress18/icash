@@ -13,7 +13,7 @@
 	<meta name="theme-color" content="#FF6600">
 	<meta name="keywords" content="jquery, css3, java, sliding, box, menu, cube, navigation, portfolio, thumbnails" />
 	<link rel="icon" type="image/png" href="public/img/system/iCash-logo-ico.png" />
-	<meta name="viewport" content="width=device-width, user=scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />	
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />	
 	<meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
 	<link rel="icon" type="image/png" href="public/img/system/iCash-logo-ico.png" />
